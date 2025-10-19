@@ -29,7 +29,10 @@ def check_password_uniqueness(bloom, new_passwords_to_check):
             if password.strip() == "":
                 results[password] = "empty"
             else:
-                results[password] = bloom.contains(password)
+                if bloom.contains(password):
+                    results[password] = "вже використаний"
+                else:
+                    results[password] = "унікальний"
         else:
             results[str(password)] = "invalid"
 
