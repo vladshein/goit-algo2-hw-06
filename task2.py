@@ -2,9 +2,6 @@ import json
 from datasketch import HyperLogLog
 from datetime import datetime
 
-# Ініціалізація HyperLogLog
-hll = HyperLogLog(p=14)
-
 
 def read_file(file_name):
     ip_list = []
@@ -22,6 +19,8 @@ def read_file(file_name):
 
 def compare_set_with_hll():
     ip_list = read_file("lms-stage-access.log")
+    # Ініціалізація HyperLogLog
+    hll = HyperLogLog(p=14)
 
     start = datetime.now()
     ip_set = set(ip_list)
